@@ -117,3 +117,6 @@ HIRA is an AI-powered decision-support system developed as part of the Vikara He
 ## 📃 License
 
 This project is intended for educational and internal demonstration purposes only. Not licensed for commercial deployment.
+
+Names:
+Donald Clemons - FE
