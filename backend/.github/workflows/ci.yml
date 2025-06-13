@@ -1,0 +1,30 @@
+name: CI
+
+# When to trigger the workflow this should help us verify every commit passes all tests before merging:
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Free and Fast
+
+    steps:
+    - name: Checkout code from repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: | # good practice to upgrade pip after attempting to install in event it's already preinstalled
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        pytest
