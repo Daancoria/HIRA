@@ -1,0 +1,165 @@
+/* Container for the entire chatbot page */
+.container {
+  max-width: 100%;
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Header row: user info and logout button */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Logout button styling */
+.logoutButton {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Chat area styling */
+.chatbox {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  border: 1px solid var(--base-variant);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: var(--base-variant);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Base message bubble styling */
+.message {
+  padding: 8px 12px;
+  border-radius: 20px;
+  max-width: 75%;
+  word-wrap: break-word;
+  animation: fadeIn 0.3s ease;
+  line-height: 1.4;
+}
+
+/* User message bubble */
+.messageUser {
+  background-color: var(--user-bubble-bg);
+  color: var(--bubble-text);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin: 8px 0;
+  align-self: flex-end;
+  max-width: 75%;
+}
+
+/* Bot message bubble */
+.messageBot {
+  background-color: var(--bot-bubble-bg);
+  color: var(--bubble-text);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin: 8px 0;
+  align-self: flex-start;
+  max-width: 75%;
+}
+
+/* File upload box styling */
+.uploadBox {
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px dashed #6c757d;
+  border-radius: 8px;
+  background-color: var(--base-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+/* File upload label */
+.uploadLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* File input styling */
+.uploadInput {
+  width: 100%;
+}
+
+/* Input row for chat input and send button */
+.inputRow {
+  display: flex;
+  gap: 8px;
+}
+
+/* Chat input field styling */
+.input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  background-color: var(--base-color);
+  color: var(--text-color);
+  border: 1px solid var(--base-variant);
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Send button styling */
+.button {
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Typing dots animation for bot typing indicator */
+.dots::after {
+  content: '...';
+  animation: blink 1.2s steps(3, end) infinite;
+}
+
+@keyframes blink {
+  0% { content: '.'; }
+  33% { content: '..'; }
+  66% { content: '...'; }
+  100% { content: ''; }
+}
+
+/* Character counter for input field */
+.charCount {
+  text-align: right;
+  font-size: 0.75em;
+  color: var(--secondary-text);
+  margin-top: 4px;
+  margin-right: 8px;
+}
+
+/* Fade-in animation for new messages */
+.fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -1,0 +1,136 @@
+:root {
+  --base-color: #ffffff;
+  --base-variant: #e8e9ed;
+  --text-color: #111528;
+  --secondary-text: #232738;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+  --user-bubble-bg: #d1e7dd;
+  --bot-bubble-bg: #e2e3e5;
+  --bubble-text: #111528;
+}
+
+.darkmode {
+  --base-color: #070b1d;
+  --base-variant: #101425;
+  --text-color: #ffffff;
+  --secondary-text: #a4a5b8;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+  --user-bubble-bg: #1f3b3a;
+  --bot-bubble-bg: #2a2f45;
+  --bubble-text: #f1f1f1;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--base-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Layout helpers */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-color);
+}
+
+/* Inputs */
+input[type='text'],
+select {
+  border: 1px solid var(--base-variant);
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 10px;
+  transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--base-color);
+  color: var(--text-color);
+}
+input[type='text']:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Buttons */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+button:hover {
+  background-color: var(--accent-color);
+}
+
+/* Chatbox area */
+.chatbox {
+  background-color: var(--base-variant);
+  color: var(--text-color);
+  border-radius: 10px;
+  padding: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Chat bubbles */
+.messageUser {
+  background-color: var(--user-bubble-bg);
+  color: var(--bubble-text);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin: 8px 0;
+  max-width: 70%;
+  align-self: flex-end;
+}
+
+.messageBot {
+  background-color: var(--bot-bubble-bg);
+  color: var(--bubble-text);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin: 8px 0;
+  max-width: 70%;
+  align-self: flex-start;
+}
+
+/* Animation */
+.fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
