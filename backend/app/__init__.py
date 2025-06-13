@@ -1,2 +1,2 @@
 from app.models import db
-db.init_app(app)
+db.init_app()
