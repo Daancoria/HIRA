@@ -1,23 +1,29 @@
-# app/__init__.py
-
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from app.config import Config
+from app.extension import db, ma, limiter, cache
+from app.blueprints.user.routes import users_bp
+from flask_swagger_ui import get_swaggerui_blueprint as swagger_ui_bp
 
-# Import models after db object created
-from app.models import db
+SWAGGER_URL = '/api/docs'
+API_URL = '/static/swagger.yaml'
 
-def create_app():
+swaggerui_blueprint = swagger_ui_bp(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "Your API's Name"
+    }
+)
+
+def create_app(config_name):
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(f'config.{config_name}')
 
-    # Initialize db
     db.init_app(app)
+    ma.init_app(app)
+    limiter.init_app(app)
+    cache.init_app(app)
 
-    # Test route to verify connection
-    @app.route("/")
-    def index():
-        return "HIRA Backend Connected!"
+    app.register_blueprint(users_bp, url_prefix='/users')
+    app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
     return app
-
