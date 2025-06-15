@@ -1,4 +1,5 @@
 from app.blueprints import Upload
+from app.extension import ma
 
 class UploadSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
