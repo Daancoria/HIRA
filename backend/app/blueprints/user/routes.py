@@ -49,3 +49,8 @@ def login():
         return jsonify(response), 200
     else:
         return jsonify({"message": "Invalid login credentials"}), 400
+    
+@users_bp.route("/", methods=["GET"])
+def get_all_users():
+    users = User.query.all()
+    return jsonify(users_schema.dump(users)), 200

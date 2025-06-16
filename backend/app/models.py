@@ -123,3 +123,12 @@ class AIConversation(db.Model):
     started_at = db.Column(db.DateTime, server_default=db.func.now())
 
     ai_queries = db.relationship('AIQuery', backref='conversation', lazy=True)
+    
+class DatasetRow(db.Model):
+    __tablename__ = 'dataset_rows'
+
+    id = db.Column(db.Integer, primary_key=True)
+    upload_id = db.Column(db.Integer, db.ForeignKey('Uploads.upload_id'), nullable=False)
+    row_data = db.Column(db.JSON, nullable=False)
+
+    upload = db.relationship('Upload', backref='dataset_rows')

@@ -1,9 +1,9 @@
-# app/routes/kpi_routes.py
 from flask import request, jsonify
 from app.blueprints.kpi import kpis_bp
-from app.models import KPI
+from app.models import KPI, Insight
 from app.blueprints.kpi.schemas import kpi_schema, kpis_schema
 from app.extension import db
+from app.blueprints.upload.routes import ask_openai
 
 
 @kpis_bp.route('/', methods=['POST'])
@@ -27,4 +27,39 @@ def create_kpi():
 @kpis_bp.route('/', methods=['GET'])
 def get_kpis():
     all_kpis = KPI.query.all()
-    return kpis_schema.jsonify(all_kpis)
+    return jsonify(kpis_schema.dump(all_kpis)), 200
+
+@kpis_bp.route('/<int:kpi_id>/insight', methods=['GET'])
+def get_kpi_insight(kpi_id):
+    kpi = KPI.query.get(kpi_id)
+
+    if not kpi:
+        return jsonify({'error': f'KPI with ID {kpi_id} not found'}), 404
+
+    try:
+        # Build the AI prompt
+        question = (
+            f"This KPI is '{kpi.kpi_name}' with an actual value of {kpi.value} {kpi.unit or ''}. "
+            f"The target goal is {kpi.target_goal} over a {kpi.target_window or 'N/A'} window. "
+            f"What could be the root cause of this KPI performance?"
+        )
+
+        # Call OpenAI
+        insight_text = ask_openai(question)
+
+        # Save to database
+        new_insight = Insight(
+            kpi_id=kpi.kpi_id,
+            insight_text=insight_text
+        )
+        db.session.add(new_insight)
+        db.session.commit()
+
+        return jsonify({
+            'kpi_id': kpi.kpi_id,
+            'kpi_name': kpi.kpi_name,
+            'insight': insight_text
+        }), 200
+
+    except Exception as e:
+        return jsonify({'error': f'Failed to generate or save insight: {str(e)}'}), 500

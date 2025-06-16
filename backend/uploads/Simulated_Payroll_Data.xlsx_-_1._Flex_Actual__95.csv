@@ -1,0 +1,476 @@
+Which departments have a Flex/Actual % < 95%?,,,
+List all departments that run an average of Flex/Actual % that is < 95%,,,
+Facility,Cost Center,Department,AVERAGE of  Flex /Actual Percentage 
+10000,1000 Total,,89%
+10000,1001,Mother / Baby Unit,77%
+10000,1003,Delivery Rooms,78%
+10000,1005,Perinatal Testing Center,113%
+10000,1006,Pediatrics,101%
+10000,1007,Intensive Care Nursery,117%
+10000,1009,Telemetry 2,107%
+10000,1013,Cardiac Thoracic ICU,125%
+10000,1014,Intensive Care Unit,97%
+10000,1021,6C,113%
+10000,1022,5C,119%
+10000,1023,3B,0%
+10000,1024,3C,0%
+10000,1029,6A,0%
+10000,1031,Clinical Decision Unit,125%
+10000,1035,Nursing Resource Team,15%
+10000,1049,One on One Staffing,129%
+10000,1052,Monitor Techs,100%
+10000,1090,4 Pavilion,94%
+10000,1091,5 Pavilion,84%
+10000,2004,Resp. Therapy School,97%
+10000,2005,Operating Room,108%
+10000,2006,Recovery Room,139%
+10000,2007,Thoracic and Cardio Surg,255%
+10000,2009,Surgicenter,65%
+10000,2011,E/R Registration,76%
+10000,2012,Emergency Room,83%
+10000,2021,Wound Healing Center,94%
+10000,2027,Cancer Registry,97%
+10000,2028,Cardiology,108%
+10000,2032,Cardiac Cath Lab,153%
+10000,2036,Ophthalmic Service,0%
+10000,2038,Physical Medicine,99%
+10000,2045,Cardiac Rehabilitation,87%
+10000,2047,Respiratory Therapy,111%
+10000,2048,Pulmonary-Cardio,81%
+10000,2052,Neurology,101%
+10000,2054,Central Sterile Supply,110%
+10000,2055,Pharmacy,110%
+10000,2056,IV Therapy,97%
+10000,2057,General Radiology,104%
+10000,2058,Diagnostic Radiology,102%
+10000,2059,CAT Scan,114%
+10000,2060,Ultrasound,97%
+10000,2061,Radiology Special,86%
+10000,2063,Nuclear Medicine,106%
+10000,2064,Radiation Therapy,105%
+10000,2065,Oncology,90%
+10000,2066,MRI Center,99%
+10000,2078,Endoscopy,102%
+10000,2080,TMS Therapy,0%
+10000,2112,OP Admin. Radiology Clerical,77%
+10000,2113,OP Diagnostic Radiology,72%
+10000,2114,OP Cat Scan,91%
+10000,2115,OP Ultrasound,104%
+10000,2117,Breast Diagnostic Services,98%
+10000,2125,CCOP,206%
+10000,2126,Employeearmacy,76%
+10000,2136,Pre-Admission Testing,113%
+10000,2152,Bariatric Surgery Program,148%
+10000,2155,Neuro Interventional Lab,123%
+10000,2310,Radiology OP Diagno XRay HC,91%
+10000,2311,Radiology OP CAT Scan HC,99%
+10000,2312,Radiology OP Ultrasound HC,115%
+10000,2313,Mammography OP HC,77%
+10000,2315,Cardiac Rehab OP HC,53%
+10000,2316,Cardiology OP HC,127%
+10000,2318,PM and R OP HC,118%
+10000,2320,Radiation Therapy OP HC,125%
+10000,2321,Sleep Study OP HC,108%
+10000,2322,Diabetes Management HC,113%
+10000,4000,Nursing Administration,88%
+10000,4002,Staff Development,98%
+10000,4003,Central Transport,79%
+10000,4004,Nurse Residents,70%
+10000,4005,Staffing Office,87%
+10000,4013,Division of Surgery,0%
+10000,4019,Case Mangement,93%
+10000,4020,Pediatrics / Neonatology Off,120%
+10000,4022,Admissions,138%
+10000,4023,Quality Outcomes,136%
+10000,4028,Continuing Medical Education,89%
+10000,4030,Food Service,102%
+10000,4033,Housekeeping,103%
+10000,4034,Laundry,194%
+10000,4046,Security,132%
+10000,4067,Business Office,107%
+10000,4068,OP Registration and Admin.,81%
+10000,4073,Cashiering,108%
+10000,4098,Executive Office,100%
+10000,4099,Administration,109%
+10000,4103,Quality Management,167%
+10000,4108,Marketing,0%
+10000,4109,Development,78%
+10000,4110,Human Resources,95%
+10000,4122,Supply Chain Management,91%
+10000,4127,Volunteers,84%
+10000,4131,Risk Management,0%
+10000,4134,Medical Library,93%
+10000,4135,Chaplaincy,124%
+10000,4137,Community Services,128%
+10000,4139,Former Employees,0%
+10000,4155,Service Center,104%
+10000,4159,Transfer Center,5%
+10000,4167,Hospitality,78%
+10000,4205,OR Scheduling,384%
+10000,4209,Development Capital Campaign,122%
+10000,4250,JLL Maintenance,110%
+10000,4301,Administration HC,84%
+10000,4303,Medical Office Bldg HC,251%
+10000,4304,Registration HC,50%
+10000,4401,Interns and Residents,112%
+10000,4413,Family Medicine Residents,93%
+10000,4415,Radiology Residents,121%
+10000,4416,Podiatry Residents,102%
+10000,4417,Breast Surgery Fellows,91%
+11000,1001,Mother / Baby Unit,110%
+11000,1003,Delivery Rooms,106%
+11000,1004,Antenatal Unit,241%
+11000,1005,Perinatal Testing Center,87%
+11000,1007,Intensive Care Nursery,110%
+11000,1008,2 Pavilion Stepdown,106%
+11000,1010,3 South,107%
+11000,1016,1 South,104%
+11000,1017,2 Rosengarten,107%
+11000,1018,2 South,104%
+11000,1019,2 Southwest,107%
+11000,1020,3 Southwest,107%
+11000,1026,3 East,97%
+11000,1030,4 SW,205%
+11000,1035,Nursing Resource Team,0%
+11000,1037,NPPA,229%
+11000,1044,1 SW,104%
+11000,1049,One on One Staffing,61%
+11000,1051,IV Team,104%
+11000,1052,Monitor Techs,98%
+11000,1053,6 West,148%
+11000,1080,CICU,109%
+11000,1081,1 Pavilion,115%
+11000,1082,2 Pavilion,104%
+11000,1083,SICU,73%
+11000,2001,Clinic Medicine,71%
+11000,2005,Operating Room,86%
+11000,2006,Recovery Room,109%
+11000,2007,Thoracic and Cardio Surg,106%
+11000,2009,Surgicenter,86%
+11000,2011,E/R Registration,76%
+11000,2012,Emergency Room,91%
+11000,2014,Trauma,103%
+11000,2016,Clinics,89%
+11000,2017,Family Planning Clinic,298%
+11000,2021,Wound Healing Center,92%
+11000,2026,Kidney Acquisition,115%
+11000,2027,Cancer Registry,98%
+11000,2028,Cardiology,106%
+11000,2032,Cardiac Cath Lab,119%
+11000,2033,Mammography Center,95%
+11000,2036,Ophthalmic Service,77%
+11000,2038,Physical Medicine,97%
+11000,2045,Cardiac Rehabilitation,121%
+11000,2047,Respiratory Therapy,114%
+11000,2048,Pulmonary-Cardio,114%
+11000,2051,Sleep Study,141%
+11000,2052,Neurology,103%
+11000,2054,Central Sterile Supply,93%
+11000,2055,Pharmacy,98%
+11000,2057,General Radiology,105%
+11000,2058,Diagnostic Radiology,106%
+11000,2059,CAT Scan,106%
+11000,2060,Ultrasound,113%
+11000,2061,Radiology Special,80%
+11000,2063,Nuclear Medicine,0%
+11000,2064,Radiation Therapy,83%
+11000,2066,MRI Center,133%
+11000,2078,Endoscopy,93%
+11000,2112,OP Admin. Radiology Clerical,175%
+11000,2113,OP Diagnostic Radiology,211%
+11000,2114,OP Cat Scan,169%
+11000,2115,OP Ultrasound,134%
+11000,2117,Breast Diagnostic Services,57%
+11000,2121,Sleep StudyAmbulatory,0%
+11000,2131,Diabetes Management Program,143%
+11000,2135,Outpatient P M and R,123%
+11000,2136,Pre-Admission Testing,135%
+11000,2156,OP Rehab Service at SJU,0%
+11000,4000,Nursing Administration,88%
+11000,4002,Staff Development,111%
+11000,4003,Central Transport,109%
+11000,4004,Nurse Residents,0%
+11000,4005,Staffing Office,114%
+11000,4010,Division of OB/GYN,92%
+11000,4013,Division of Surgery,97%
+11000,4014,Division of Medicine,102%
+11000,4019,Case Mangement,105%
+11000,4020,Pediatrics / Neonatology Off,87%
+11000,4022,Admissions,124%
+11000,4023,Quality Outcomes,152%
+11000,4028,Continuing Medical Education,96%
+11000,4030,Food Service,103%
+11000,4033,Housekeeping,0%
+11000,4034,Laundry,137%
+11000,4046,Security,97%
+11000,4047,Safety,0%
+11000,4067,Business Office,98%
+11000,4068,OP Registration and Admin.,98%
+11000,4073,Cashiering,107%
+11000,4098,Executive Office,110%
+11000,4099,Administration,85%
+11000,4103,Quality Management,88%
+11000,4108,Marketing,0%
+11000,4109,Development,65%
+11000,4110,Human Resources,100%
+11000,4122,Supply Chain Management,96%
+11000,4127,Volunteers,75%
+11000,4131,Risk Management,89%
+11000,4134,Medical Library,97%
+11000,4137,Community Services,101%
+11000,4139,Former Employees,0%
+11000,4155,Service Center,107%
+11000,4159,Transfer Center,47%
+11000,4161,Heart Failure and Transplant,88%
+11000,4164,Simulation Lab,100%
+11000,4167,Hospitality,102%
+11000,4174,Annenberg Conference Center,120%
+11000,4205,OR Scheduling,124%
+11000,4209,Development Capital Campaign,0%
+11000,4211,Integrative Therapy,0%
+11000,4250,JLL Maintenance,92%
+11000,4401,Interns and Residents,57%
+11000,4402,Internal Medicine Residents,94%
+11000,4403,Nephrology Fellows,120%
+11000,4404,Cardiovascular Fellows,99%
+11000,4405,Interventional Cardio Fellows,100%
+11000,4406,Clinical Cardiac EP Fellows,100%
+11000,4407,Pulm Critical Care Fellows,100%
+11000,4408,Colorectal Surgery Fellows,100%
+11000,4409,Hematology_Oncology Fellows,88%
+11000,4410,Gastroenterology Fellows,100%
+11000,4411,General Surgery Residents,90%
+11000,4412,Obstetrics Gyn Residents,98%
+11000,4413,Family Medicine Residents,100%
+11000,4414,Inrotator Residents,0%
+12000,1003,Delivery Rooms,95%
+12000,1005,Perinatal Testing Center,90%
+12000,1007,Intensive Care Nursery,75%
+12000,1013,Cardiac Thoracic ICU,114%
+12000,1027,3 East,112%
+12000,1035,Nursing Resource Team,0%
+12000,1037,NPPA,135%
+12000,1048,4 West Surgical,84%
+12000,1049,One on One Staffing,44%
+12000,1051,IV Team,120%
+12000,1052,Monitor Techs,79%
+12000,1054,PCP 3A,108%
+12000,1055,PCP 4A,109%
+12000,1056,PCP 4B,104%
+12000,1057,PCU,103%
+12000,2005,Operating Room,100%
+12000,2006,Recovery Room,111%
+12000,2007,Thoracic and Cardio Surg,204%
+12000,2008,Ambulatory Surgery,105%
+12000,2011,E/R Registration,97%
+12000,2012,Emergency Room,92%
+12000,2014,Trauma,134%
+12000,2021,Wound Healing Center,115%
+12000,2027,Cancer Registry,83%
+12000,2028,Cardiology,99%
+12000,2032,Cardiac Cath Lab,116%
+12000,2033,Mammography Center,121%
+12000,2038,Physical Medicine,96%
+12000,2045,Cardiac Rehabilitation,116%
+12000,2047,Respiratory Therapy,88%
+12000,2048,Pulmonary-Cardio,67%
+12000,2051,Sleep Study,99%
+12000,2052,Neurology,119%
+12000,2054,Central Sterile Supply,127%
+12000,2055,Pharmacy,109%
+12000,2057,General Radiology,119%
+12000,2058,Diagnostic Radiology,101%
+12000,2059,CAT Scan,107%
+12000,2060,Ultrasound,102%
+12000,2061,Radiology Special,96%
+12000,2063,Nuclear Medicine,95%
+12000,2064,Radiation Therapy,143%
+12000,2065,Oncology,151%
+12000,2066,MRI Center,104%
+12000,2078,Endoscopy,92%
+12000,2113,OP Diagnostic Radiology,94%
+12000,2114,OP Cat Scan,0%
+12000,2115,OP Ultrasound,83%
+12000,2117,Breast Diagnostic Services,120%
+12000,2125,CCOP,189%
+12000,2131,Diabetes Management Program,67%
+12000,2136,Pre-Admission Testing,138%
+12000,4000,Nursing Administration,96%
+12000,4002,Staff Development,112%
+12000,4003,Central Transport,110%
+12000,4004,Nurse Residents,0%
+12000,4005,Staffing Office,115%
+12000,4019,Case Mangement,95%
+12000,4020,Pediatrics / Neonatology Off,101%
+12000,4021,Pharmacy Residency,0%
+12000,4022,Admissions,84%
+12000,4023,Quality Outcomes,87%
+12000,4030,Food Service,111%
+12000,4033,Housekeeping,94%
+12000,4034,Laundry,122%
+12000,4046,Security,102%
+12000,4067,Business Office,114%
+12000,4068,OP Registration and Admin.,85%
+12000,4073,Cashiering,124%
+12000,4098,Executive Office,92%
+12000,4099,Administration,98%
+12000,4103,Quality Management,108%
+12000,4108,Marketing,0%
+12000,4109,Development,96%
+12000,4110,Human Resources,108%
+12000,4122,Supply Chain Management,95%
+12000,4123,Stores and Distribution,0%
+12000,4127,Volunteers,91%
+12000,4131,Risk Management,64%
+12000,4134,Medical Library,75%
+12000,4137,Community Services,120%
+12000,4139,Former Employees,0%
+12000,4159,Transfer Center,105%
+12000,4205,OR Scheduling,85%
+12000,4211,Integrative Therapy,0%
+12000,4250,JLL Maintenance,88%
+13000,1039,Oak Unit,104%
+13000,1040,Spruce Unit,101%
+13000,1041,Maple Unit,108%
+13000,1045,Birch Unit,117%
+13000,1049,One on One Staffing,112%
+13000,2016,Clinics,74%
+13000,2020,Day Treatment,86%
+13000,2025,Assistive Technology,83%
+13000,2035,Horticulture Therapy,97%
+13000,2039,I/P Physical Therapy,98%
+13000,2040,Occupational Therapy,107%
+13000,2041,Speech Therapy,97%
+13000,2043,Recreational Therapy,94%
+13000,2044,Aquatics,105%
+13000,2052,Neurology,74%
+13000,2055,Pharmacy,94%
+13000,2057,General Radiology,88%
+13000,2103,O/P Physical Therapy,83%
+13000,2104,O/P Occupational Therapy,102%
+13000,2106,O/P Communication Disorder,100%
+13000,2110,Adaptive Driving,88%
+13000,2135,Outpatient P M and R,115%
+13000,4000,Nursing Administration,134%
+13000,4002,Staff Development,103%
+13000,4004,Nurse Residents,0%
+13000,4005,Staffing Office,67%
+13000,4012,Orthomedical Division,0%
+13000,4016,Medical Staff Office,183%
+13000,4019,Case Mangement,0%
+13000,4022,Admissions,100%
+13000,4025,Social Service,96%
+13000,4030,Food Service,106%
+13000,4033,Housekeeping,91%
+13000,4046,Security,108%
+13000,4049,Telecommunications,101%
+13000,4067,Business Office,0%
+13000,4068,OP Registration and Admin.,84%
+13000,4073,Cashiering,75%
+13000,4098,Executive Office,73%
+13000,4099,Administration,179%
+13000,4102,Research Planning,151%
+13000,4108,Marketing,0%
+13000,4109,Development,85%
+13000,4110,Human Resources,124%
+13000,4115,Project Search,76%
+13000,4116,Project Search,62%
+13000,4121,Special Events,92%
+13000,4122,Supply Chain Management,110%
+13000,4124,Health Education,74%
+13000,4127,Volunteers,123%
+13000,4137,Community Services,112%
+13000,4139,Severence,0%
+13000,4141,O/P Social Services,0%
+13000,4142,O/P Maint Transportation,92%
+13000,4202,Psychology Services,121%
+13000,4203,Therapy Scheduling,2570%
+13000,4204,Therapy Per Diem Resource Pool,0%
+13000,4210,System Staffing,0%
+13000,4250,JLL Maintenance,105%
+20000,1001,Mother / Baby Unit,71%
+20000,1005,Perinatal Testing Center,98%
+20000,1007,Intensive Care Nursery,51%
+20000,1009,Telemetry 2,112%
+20000,1014,Intensive Care Unit,114%
+20000,1032,Transitional Care Center,105%
+20000,1035,Nursing Resource Team,1%
+20000,1049,One on One Staffing,27%
+20000,1051,IV Team,125%
+20000,1060,Medical Surgical 2 North,111%
+20000,1061,Medical Surgical 2 East,111%
+20000,1062,Medical Surgical 3 East,111%
+20000,1064,Medical Surgical 4 West,109%
+20000,1065,Medical Surgical 4 South,114%
+20000,1066,Medical Surgical 4 East,111%
+20000,1067,Medical Surgical 4C West,118%
+20000,1069,A.M. Flex Unit,95%
+20000,2000,Audiology Services,109%
+20000,2005,Operating Room,120%
+20000,2006,Recovery Room,106%
+20000,2009,Surgicenter,109%
+20000,2011,E/R Registration,90%
+20000,2012,Emergency Room,82%
+20000,2021,Wound Healing Center,140%
+20000,2022,Anesthesiology,111%
+20000,2027,Cancer Registry,93%
+20000,2028,Cardiology,90%
+20000,2032,Cardiac Cath Lab,93%
+20000,2033,Mammography Center,90%
+20000,2037,PM&R TCC,0%
+20000,2038,Physical Medicine,125%
+20000,2045,Cardiac Rehabilitation,159%
+20000,2047,Respiratory Therapy,93%
+20000,2048,Pulmonary-Cardio,127%
+20000,2051,Sleep Study,146%
+20000,2052,Neurology,107%
+20000,2054,Central Sterile Supply,89%
+20000,2055,Pharmacy,129%
+20000,2057,General Radiology,101%
+20000,2058,Diagnostic Radiology,112%
+20000,2059,CAT Scan,122%
+20000,2060,Ultrasound,101%
+20000,2063,Nuclear Medicine,133%
+20000,2066,MRI Center,113%
+20000,2078,Endoscopy,144%
+20000,2113,OP Diagnostic Radiology,134%
+20000,2114,OP Cat Scan,125%
+20000,2115,OP Ultrasound,161%
+20000,2117,Breast Diagnostic Services,254%
+20000,2131,Diabetes Management Program,101%
+20000,2135,Outpatient PM and R,107%
+20000,2136,Pre-Admission Testing,100%
+20000,4000,Nursing Administration,106%
+20000,4002,Staff Development,106%
+20000,4003,Central Transport,135%
+20000,4004,Nurse Residents,144%
+20000,4019,Case Mangement,103%
+20000,4022,Admissions,99%
+20000,4023,Quality Outcomes,89%
+20000,4028,Continuing Medical Education,136%
+20000,4030,Food Service,116%
+20000,4033,Housekeeping,108%
+20000,4034,Laundry,94%
+20000,4046,Security,105%
+20000,4067,Business Office,89%
+20000,4068,OP Registration and Admin.,102%
+20000,4073,Cashiering,97%
+20000,4098,Executive Office,0%
+20000,4099,Administration,90%
+20000,4103,Quality Management,97%
+20000,4108,Marketing,0%
+20000,4109,Development,90%
+20000,4110,Human Resources,98%
+20000,4120,Admission Discharge Team,112%
+20000,4122,Supply Chain Management,93%
+20000,4127,Volunteers,90%
+20000,4128,Tobacco Cessation,97%
+20000,4131,Risk Management,102%
+20000,4134,Medical Library,95%
+20000,4137,Community Services,68%
+20000,4139,Severance,0%
+20000,4176,Orthopedics,89%
+20000,4177,Medical Procedure Unit,0%
+20000,4205,OR Scheduling,100%
+20000,4211,Integrative Therapy,0%
+20000,4250,JLL Maintenance,101%
