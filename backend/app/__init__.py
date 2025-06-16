@@ -2,6 +2,8 @@ from flask import Flask
 from app.extension import db, ma, limiter, cache
 from app.blueprints.user.routes import users_bp
 from app.blueprints.upload.routes import uploads_bp
+from app.blueprints.kpi.routes import kpis_bp
+from app.blueprints.staffing_data.routes import staffing_data_bp
 from flask_swagger_ui import get_swaggerui_blueprint as swagger_ui_bp
 
 SWAGGER_URL = '/api/docs'
@@ -26,11 +28,10 @@ def create_app(config_name):
     cache.init_app(app)
 
     app.register_blueprint(users_bp, url_prefix='/users')
-    app.register_blueprint(uploads_bp)
+    app.register_blueprint(uploads_bp, url_prefix='/uploads')
+    app.register_blueprint(kpis_bp, url_prefix='/kpis')
+    app.register_blueprint(staffing_data_bp, url_prefix='/staffing_data')
     app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
     return app
 
-@uploads_bp.route('/test', methods=['GET'])
-def test_uploads():
-    return jsonify({'message': 'Upload blueprint is working'})
