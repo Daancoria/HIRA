@@ -1,9 +1,12 @@
 from flask import Flask
 from app.extension import db, ma, limiter, cache
+
 from app.blueprints.user.routes import users_bp
 from app.blueprints.upload.routes import uploads_bp
 from app.blueprints.kpi.routes import kpis_bp
 from app.blueprints.staffing_data.routes import staffing_data_bp
+from app.blueprints.ai_response.routes import ai_response_bp  # ✅ NEW
+
 from flask_swagger_ui import get_swaggerui_blueprint as swagger_ui_bp
 
 SWAGGER_URL = '/api/docs'
@@ -32,7 +35,7 @@ def create_app(config_name):
     app.register_blueprint(uploads_bp, url_prefix='/uploads')
     app.register_blueprint(kpis_bp, url_prefix='/kpis')
     app.register_blueprint(staffing_data_bp, url_prefix='/staffing_data')
+    app.register_blueprint(ai_response_bp)  # ✅ Register the /analyze route here
     app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
     return app
-

@@ -1,4 +1,4 @@
-const USE_MOCK = true; // 👈 Toggle this to false when you're ready for real backend
+const USE_MOCK = false; // 👈 Toggle this to false when you're ready for real backend
 
 export async function getBotResponse(prompt: string): Promise<string> {
   if (USE_MOCK) {
