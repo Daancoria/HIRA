@@ -6,7 +6,17 @@ from marshmallow import ValidationError
 from sqlalchemy import select, delete
 from app.utils.utils import encode_token
 
-    
+
+import firebase_admin
+from firebase_admin import credentials, auth
+import os
+
+if not firebase_admin._apps:
+    cred = credentials.Certificate(os.getenv("FIREBASE_CREDENTIALS_PATH"))
+    firebase_admin.initialize_app(cred)
+
+# ─────────────── ROUTES ─────────────── #
+
 @users_bp.route("/", methods=["POST"])
 def create_user():
     try:
@@ -20,37 +30,49 @@ def create_user():
 
     return jsonify(user_schema.dump(user_data)), 201
 
-
-
-@users_bp.route("/login", methods=["POST"])
-def login():
-    try:
-        credentials = login_schema.load(request.json)
-        name = credentials['name']
-        email = credentials['email']
-        password = credentials['password']
-        role = credentials['role']
-    except ValidationError as e:
-        return jsonify(e.messages), 400
-
-    query = select(User).where(
-        User.email == email,
-        User.role == role
-    )
-    customer = db.session.execute(query).scalars().first()
-
-    if customer and customer.password == password:
-        token = encode_token(customer.id)
-        response = {
-            'status': 'success',
-            'message': 'successfully logged in',
-            'token': token
-        }
-        return jsonify(response), 200
-    else:
-        return jsonify({"message": "Invalid login credentials"}), 400
-    
 @users_bp.route("/", methods=["GET"])
 def get_all_users():
     users = User.query.all()
     return jsonify(users_schema.dump(users)), 200
+
+
+@users_bp.route("/login", methods=["POST"])
+def firebase_login():
+    data = request.get_json()
+    firebase_token = data.get("firebase_token")
+
+    if not firebase_token:
+        return jsonify({"error": "Missing Firebase token"}), 400
+
+    try:
+        decoded_token = auth.verify_id_token(firebase_token)
+        email = decoded_token.get("email")
+        name = decoded_token.get("name", email.split("@")[0])
+
+        user = User.query.filter_by(email=email).first()
+
+        if not user:
+            user = User(
+                name=name,
+                email=email,
+                password="firebase-auth",  # dummy value
+                role="Manager"  # or default role
+            )
+            db.session.add(user)
+            db.session.commit()
+
+        jwt_token = encode_token(user.id)
+
+        return jsonify({
+            "message": "Login via Firebase successful",
+            "user": {
+                "id": user.id,
+                "email": user.email,
+                "name": user.name,
+                "role": user.role
+            },
+            "jwt_token": jwt_token
+        }), 200
+
+    except Exception as e:
+        return jsonify({"error": f"Firebase token invalid: {str(e)}"}), 401
