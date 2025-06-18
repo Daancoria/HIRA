@@ -81,7 +81,6 @@ class KPI(db.Model):
             'department': self.department,
             'metric': self.metric,
             'value': self.value,
-            'timestamp': self.timestamp.isoformat()  # Optional: Convert datetime to ISO string
         }
 
     # relationship to insights
