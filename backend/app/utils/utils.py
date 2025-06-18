@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 from jose import jwt
 import jose
 from functools import wraps
-from flask import request, jsonify
+from flask import request, jsonify, g
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.WARNING) 
@@ -39,6 +39,13 @@ def token_required(f):
                 data = jwt.decode(token, SECRET_KEY, algorithms='HS256')
                 print(data)
                 user_id = data['sub']
+                user = user.query.get(user_id)
+
+                if not user:
+                    logger.warning(f"Not found: User does not exist. Error: {str(e)}")
+                    return jsonify({'message': 'User not found'}), 404
+                
+                g.current_user = user
 
             except jwt.ExpiredSignatureError as e:
                 logger.warning(f"Security incident: Expired token used. Error: {str(e)}")

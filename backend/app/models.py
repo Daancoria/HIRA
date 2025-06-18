@@ -8,6 +8,7 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
     role = db.Column(db.String(100), nullable=False)
+    department = db.Column(db.String(100), nullable=False)
 
     # relationships (optional)
     uploads = db.relationship('Upload', backref='user', lazy=True)
@@ -72,6 +73,16 @@ class KPI(db.Model):
     unit = db.Column(db.String(50))
     target_goal = db.Column(db.Numeric(12, 4))
     target_window = db.Column(db.String(50))
+    department = db.Column(db.String(100), nullable=False))
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'department': self.department,
+            'metric': self.metric,
+            'value': self.value,
+            'timestamp': self.timestamp.isoformat()  # Optional: Convert datetime to ISO string
+        }
 
     # relationship to insights
     insights = db.relationship('Insight', backref='kpi', lazy=True)

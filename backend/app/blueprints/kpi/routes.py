@@ -1,4 +1,4 @@
-from flask import request, jsonify
+from flask import request, jsonify, g
 from app.blueprints.kpi import kpis_bp
 from app.models import KPI, Insight
 from app.blueprints.kpi.schemas import kpi_schema, kpis_schema
@@ -25,9 +25,15 @@ def create_kpi():
         return jsonify({'error': str(e)}), 400
 
 @kpis_bp.route('/', methods=['GET'])
-def get_kpis():
-    all_kpis = KPI.query.all()
-    return jsonify(kpis_schema.dump(all_kpis)), 200
+@token_required
+def get_kpi():
+    # Get the department from the logged-in user
+    user_department = g.current_user.department
+
+    # Filter KPIs to only those from user's department
+    department_kpis = KPI.query.filter_by(department=user_department).all()
+
+    return jsonify(kpis_schema.dump(department_kpis)), 200
 
 @kpis_bp.route('/<int:kpi_id>/insight', methods=['GET'])
 def get_kpi_insight(kpi_id):
