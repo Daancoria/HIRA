@@ -17,7 +17,7 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
-  register : (email: string, password: string) => Promise<void>;
+  register : (email: string, password: string, name: string, role: Role) => Promise<void>;
   login: (email: string, password: string, role: Role, name: string) => Promise<void>;
   logout: () => Promise<void>;
 }
@@ -30,11 +30,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser: FirebaseUser | null) => {
       if (firebaseUser) {
-        // We'll use whatever name was provided during login
-        // But if no name, fallback to email
         setUser((prevUser) => ({
-          ...(prevUser || { name: 'Unknown' }), // retain previous user data or default name
-          role: 'Manager' // set role to 'Manager'
+          ...(prevUser || { name: 'Unknown' }),
+          role: 'Manager'
         }));
       } else {
         setUser(null);
@@ -44,16 +42,25 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return () => unsubscribe();
   }, []);
 
-  const login = async (email: string, password: string, role: Role, name: string) => {
-    await signInWithEmailAndPassword(auth, email, password);
-    // Directly use the name from LoginPage
+  const register = async (email: string, password: string, name: string, role: Role) => {
+    await createUserWithEmailAndPassword(auth, email, password);
+
+    // This is me adding a post for backend to create a user record
+    await fetch('http://localhost:5001/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, role }),
+    });
+
     setUser({ name, role });
   };
-  const register = async (email: string, password: string) => {
-    // create user
-    await createUserWithEmailAndPassword(auth, email, password);
+
+  const login = async (email: string, password: string, role: Role, name: string) => {
+    await signInWithEmailAndPassword(auth, email, password);
+    setUser({ name, role });
   };
-  
 
   const logout = async () => {
     await signOut(auth);
