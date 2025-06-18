@@ -1,10 +1,13 @@
-# app/utils/util.py
+import logging
+
 from datetime import datetime, timedelta, timezone
 from jose import jwt
 import jose
 from functools import wraps
 from flask import request, jsonify
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.WARNING) 
 
 SECRET_KEY = "abc123"
 
@@ -28,6 +31,7 @@ def token_required(f):
             token = request.headers['Authorization'].split()[1]
 
             if not token:
+                logger.warning("Security incident: Missing token in Authorization header")
                 return jsonify({'message': 'missing token'}), 400
             
             try:        
@@ -35,13 +39,18 @@ def token_required(f):
                 data = jwt.decode(token, SECRET_KEY, algorithms='HS256')
                 print(data)
                 user_id = data['sub']
+
             except jwt.ExpiredSignatureError as e:
+                logger.warning(f"Security incident: Expired token used. Error: {str(e)}")
                 return jsonify({'message':'token expired'}), 400
+            
             except jwt.InvalidTokenError:
+                logger.warning(f"Security incident: Invalid token used. Error: {str(e)}")
                 return jsonify({'message': 'invalid token'}), 400
             
             return f(*args, **kwargs)
         else:
+            logger.warning("Security incident: No Authorization header provided")
             return jsonify({'message': 'You must be logged in to access this.'}), 400
 
     return decorated

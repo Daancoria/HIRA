@@ -1,6 +1,7 @@
+from app.error_handlers import register_error_handlers
 from flask import Flask
 from app.extension import db, ma, limiter, cache
-
+from app.logging_config import setup_logging 
 from app.blueprints.user.routes import users_bp
 from app.blueprints.upload.routes import uploads_bp
 from app.blueprints.kpi.routes import kpis_bp
@@ -22,6 +23,7 @@ swaggerui_blueprint = swagger_ui_bp(
 
 def create_app(config_name):
     app = Flask(__name__)
+    setup_logging(app)
     app.config.from_object(f'config.{config_name}')
     app.config['UPLOAD_FOLDER'] = 'uploads'
     app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
@@ -37,5 +39,6 @@ def create_app(config_name):
     app.register_blueprint(staffing_data_bp, url_prefix='/staffing_data')
     app.register_blueprint(ai_response_bp)  # ✅ Register the /analyze route here
     app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+    register_error_handlers(app)
 
     return app

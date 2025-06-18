@@ -8,8 +8,6 @@ from firebase_admin import credentials, auth
 import os
 from dotenv import load_dotenv
 
-
-
 db = SQLAlchemy()
 ma = Marshmallow()
 cache = Cache()
