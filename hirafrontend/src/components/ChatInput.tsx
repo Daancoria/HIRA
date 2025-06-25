@@ -1,34 +1,36 @@
-import React, { useRef, useEffect } from 'react';
-import styles from '../pages/ChatbotPage.module.css';
+import React, { useRef, useEffect } from 'react'
+import styles from './ChatInput.module.css'
 
-// Props for the ChatInput component
 interface ChatInputProps {
-  value: string; // Current input value
-  onChange: (text: string) => void; // Handler for input change
-  onSend: () => void; // Handler for sending message
-  isLoading?: boolean; // Optional: disables input/button when loading
+  value: string
+  onChange: (text: string) => void
+  onSend: () => void
+  isLoading?: boolean
 }
 
-// ChatInput component for typing and sending chat messages
-export default function ChatInput({ value, onChange, onSend, isLoading }: ChatInputProps) {
-  const inputRef = useRef<HTMLInputElement | null>(null);
+export default function ChatInput({
+  value,
+  onChange,
+  onSend,
+  isLoading,
+}: ChatInputProps) {
+  const inputRef = useRef<HTMLInputElement | null>(null)
 
-  // Focus the input field when the component mounts
   useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+    inputRef.current?.focus()
+  }, [])
 
-  // Handle Enter key to send message
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && !isLoading && value.trim()) {
-      onSend();
+      onSend()
     }
-  };
+  }
+
+  const isDisabled = !value.trim() || isLoading
 
   return (
     <div className={styles.inputRow}>
-      {/* Input field and character counter */}
-      <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+      <div className={styles.inputContainer}>
         <input
           ref={inputRef}
           type="text"
@@ -39,23 +41,19 @@ export default function ChatInput({ value, onChange, onSend, isLoading }: ChatIn
           onKeyDown={handleKeyDown}
           className={styles.input}
           aria-label="Chat message input"
+          disabled={isLoading}
         />
         <div className={styles.charCount}>{value.length}/300</div>
       </div>
 
-      {/* Send button */}
       <button
         onClick={onSend}
-        disabled={!value.trim() || isLoading}
-        className={styles.button}
+        disabled={isDisabled}
+        className={`${styles.button} ${isDisabled ? styles.disabled : ''}`}
         aria-label="Send message"
-        style={{
-          opacity: (!value.trim() || isLoading) ? 0.6 : 1,
-          cursor: (!value.trim() || isLoading) ? 'not-allowed' : 'pointer'
-        }}
       >
         Send
       </button>
     </div>
-  );
+  )
 }

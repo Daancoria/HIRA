@@ -1,26 +1,32 @@
-const USE_MOCK = false; // 👈 Toggle this to false when you're ready for real backend
+const USE_MOCK = false; // 👈 Toggle this to true for local testing without backend
 
 export async function getBotResponse(prompt: string): Promise<string> {
   if (USE_MOCK) {
-    // 🔁 Mocked response with simulated delay
+    
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(`📊 (Mock) AI says: "${prompt}" real AI coming soon.`);
+        resolve(`📊 (Mock) AI says: "${prompt}" — real AI coming soon.`);
       }, 1000);
     });
   }
 
-  // 🔌 Real backend call
-  const response = await fetch('http://localhost:5000/analyze', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ prompt }),
-  });
+  try {
+    const response = await fetch('http://localhost:5000/analyze', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ prompt }),
+    });
 
-  if (!response.ok) throw new Error('Server error');
+    if (!response.ok) {
+      throw new Error(`Server returned ${response.status}`);
+    }
 
-  const data = await response.json();
-  return data.reply || 'No reply from server.';
+    const data = await response.json();
+    return data.reply || '🛑 No response received from the server.';
+  } catch (error: any) {
+    console.error('Chatbot error:', error);
+    return '⚠️ There was a problem connecting to the chatbot.';
+  }
 }

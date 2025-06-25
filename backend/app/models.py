@@ -73,7 +73,7 @@ class KPI(db.Model):
     unit = db.Column(db.String(50))
     target_goal = db.Column(db.Numeric(12, 4))
     target_window = db.Column(db.String(50))
-    department = db.Column(db.String(100), nullable=False))
+    department = db.Column(db.String(100), nullable=False)
     
     def to_dict(self):
         return {

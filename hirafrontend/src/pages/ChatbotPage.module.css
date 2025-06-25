@@ -28,10 +28,9 @@
   cursor: pointer;
 }
 
-/* Chat area styling */
+/* Chat area container */
 .chatbox {
   flex: 1;
-  min-height: 0;
   overflow-y: auto;
   border: 1px solid var(--base-variant);
   border-radius: 8px;
@@ -45,7 +44,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Base message bubble styling */
+/* Base message bubble */
 .message {
   padding: 8px 12px;
   border-radius: 20px;
@@ -55,7 +54,7 @@
   line-height: 1.4;
 }
 
-/* User message bubble */
+/* User message */
 .messageUser {
   background-color: var(--user-bubble-bg);
   color: var(--bubble-text);
@@ -63,10 +62,9 @@
   border-radius: 8px;
   margin: 8px 0;
   align-self: flex-end;
-  max-width: 75%;
 }
 
-/* Bot message bubble */
+/* Bot message */
 .messageBot {
   background-color: var(--bot-bubble-bg);
   color: var(--bubble-text);
@@ -74,39 +72,15 @@
   border-radius: 8px;
   margin: 8px 0;
   align-self: flex-start;
-  max-width: 75%;
 }
 
-/* File upload box styling */
-.uploadBox {
-  margin-bottom: 12px;
-  padding: 12px;
-  border: 1px dashed #6c757d;
-  border-radius: 8px;
-  background-color: var(--base-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease;
-}
-
-/* File upload label */
-.uploadLabel {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-/* File input styling */
-.uploadInput {
-  width: 100%;
-}
-
-/* Input row for chat input and send button */
+/* Input row layout */
 .inputRow {
   display: flex;
   gap: 8px;
 }
 
-/* Chat input field styling */
+/* Input field */
 .input {
   flex: 1;
   padding: 12px;
@@ -118,14 +92,23 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Send button styling */
+/* Character count */
+.charCount {
+  text-align: right;
+  font-size: 0.75em;
+  color: var(--secondary-text);
+  margin-top: 4px;
+  margin-right: 8px;
+}
+
+/* Send button */
 .button {
   padding: 12px 20px;
   font-size: 16px;
   cursor: pointer;
 }
 
-/* Typing dots animation for bot typing indicator */
+/* Typing animation */
 .dots::after {
   content: '...';
   animation: blink 1.2s steps(3, end) infinite;
@@ -138,16 +121,7 @@
   100% { content: ''; }
 }
 
-/* Character counter for input field */
-.charCount {
-  text-align: right;
-  font-size: 0.75em;
-  color: var(--secondary-text);
-  margin-top: 4px;
-  margin-right: 8px;
-}
-
-/* Fade-in animation for new messages */
+/* Animation for new messages */
 .fadeIn {
   animation: fadeIn 0.3s ease-in;
 }
@@ -162,4 +136,3 @@
     transform: translateY(0);
   }
 }
-

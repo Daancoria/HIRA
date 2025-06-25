@@ -5,7 +5,6 @@ from app.blueprints.kpi.schemas import kpi_schema, kpis_schema
 from app.extension import db
 from app.blueprints.upload.routes import ask_openai
 
-
 @kpis_bp.route('/', methods=['POST'])
 def create_kpi():
     data = request.get_json()

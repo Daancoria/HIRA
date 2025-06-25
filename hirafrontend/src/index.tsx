@@ -1,16 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css'; // Import global styles
-import App from './App'; // Import main App component
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import App from './App'
 
-// Create a root for rendering the React app
+// 🌙 Apply theme before rendering
+const savedTheme = localStorage.getItem('theme')
+if (savedTheme === 'dark') {
+  document.documentElement.classList.add('darkmode')
+} else {
+  document.documentElement.classList.remove('darkmode')
+}
+
+// Create root and render
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement // Get the root DOM element
-);
+  document.getElementById('root') as HTMLElement
+)
 
-// Render the App component inside React.StrictMode for highlighting potential problems
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-);
+)
