@@ -6,9 +6,11 @@ from app.blueprints.user.routes import users_bp
 from app.blueprints.upload.routes import uploads_bp
 from app.blueprints.kpi.routes import kpis_bp
 from app.blueprints.staffing_data.routes import staffing_data_bp
-from app.blueprints.ai_response.routes import ai_response_bp  # ✅ NEW
-
+from app.blueprints.ai_response.routes import ai_response_bp
+from app.models import DatasetRow
+from flask_migrate import Migrate
 from flask_swagger_ui import get_swaggerui_blueprint as swagger_ui_bp
+from flask_cors import CORS
 
 SWAGGER_URL = '/api/docs'
 API_URL = '/static/swagger.yaml'
@@ -27,11 +29,14 @@ def create_app(config_name):
     app.config.from_object(f'config.{config_name}')
     app.config['UPLOAD_FOLDER'] = 'uploads'
     app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
+    
+    CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
     db.init_app(app)
     ma.init_app(app)
     limiter.init_app(app)
     cache.init_app(app)
+    migrate = Migrate(app, db)
 
     app.register_blueprint(users_bp, url_prefix='/users')
     app.register_blueprint(uploads_bp, url_prefix='/uploads')

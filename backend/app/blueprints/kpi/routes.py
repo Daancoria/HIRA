@@ -4,6 +4,8 @@ from app.models import KPI, Insight
 from app.blueprints.kpi.schemas import kpi_schema, kpis_schema
 from app.extension import db
 from app.blueprints.upload.routes import ask_openai
+from app.utils.utils import token_required
+
 
 
 @kpis_bp.route('/', methods=['POST'])

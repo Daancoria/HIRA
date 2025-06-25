@@ -8,7 +8,8 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
     role = db.Column(db.String(100), nullable=False)
-    department = db.Column(db.String(100), nullable=False)
+    # department = db.Column(db.String(100), nullable=False)
+
 
     # relationships (optional)
     uploads = db.relationship('Upload', backref='user', lazy=True)
@@ -73,7 +74,7 @@ class KPI(db.Model):
     unit = db.Column(db.String(50))
     target_goal = db.Column(db.Numeric(12, 4))
     target_window = db.Column(db.String(50))
-    department = db.Column(db.String(100), nullable=False))
+    department = db.Column(db.String(100), nullable=False)
     
     def to_dict(self):
         return {
@@ -138,7 +139,14 @@ class DatasetRow(db.Model):
     __tablename__ = 'dataset_rows'
 
     id = db.Column(db.Integer, primary_key=True)
-    upload_id = db.Column(db.Integer, db.ForeignKey('Uploads.upload_id'), nullable=False)
-    row_data = db.Column(db.JSON, nullable=False)
+    hospital_id = db.Column(db.String(100), nullable=True)  # If known
+    upload_id = db.Column(db.Integer, db.ForeignKey('data_input.id'), nullable=True)
+    row_index = db.Column(db.Integer, nullable=True)  # Original row number in the CSV
+    key = db.Column(db.String(255), nullable=False)   # Column name (can be blank or unknown)
+    value = db.Column(db.Text, nullable=True)         # Store all data as-is, no cleanup
 
+    __table_args__ = (
+        db.Index('ix_datasetrow_hospital_key', 'hospital_id', 'key'),
+    )
+    upload_id = db.Column(db.Integer, db.ForeignKey('Uploads.upload_id'), nullable=True)
     upload = db.relationship('Upload', backref='dataset_rows')
