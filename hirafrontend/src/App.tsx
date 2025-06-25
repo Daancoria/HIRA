@@ -6,6 +6,7 @@ import RegisterPage from './pages/RegisterPage';
 import ChatbotPage from './pages/ChatbotPage';
 import ErrorBoundary from './components/ErrorBoundary';
 import './index.css';
+import ChatHistoryPage from './pages/ChatHistoryPage';
 
 // Route guard for authenticated pages
 function ProtectedRoute() {
@@ -55,6 +56,7 @@ export default function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/chat" element={<ChatbotPage />} />
             </Route>
+            <Route path="/chat-history/:sessionId" element={<ChatHistoryPage />} />
             <Route path="*" element={<Navigate to="/login" />} />
           </Routes>
         </Router>
