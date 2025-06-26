@@ -86,26 +86,33 @@ def upload_and_store_dataset():
         'filename': filename
     }
 
+    errors = []
+    inserted = 0
+
     try:
         df = pd.read_csv(filepath)
         df = df.dropna(how='all')  # drop empty rows
 
-        errors = []
-        inserted = 0
-        # Save each row as JSON
-        for _, row in df.iterrows():
-            try:
-                cleaned_row = row.replace({pd.NA: None}).replace({float('nan'): None}).to_dict()
+        for row_index, row in df.iterrows():
+            for key, value in row.items():
+                key_str = str(key).strip()
+                value_str = str(value).strip() if pd.notna(value) else None
+
+                # Skip if key is empty or value is NaN/null
+                if not key_str or value_str is None:
+                    continue
 
                 dataset_row = DatasetRow(
                     upload_id=new_upload.upload_id,
-                    row_data=cleaned_row
+                    hospital_id="H001",
+                    row_index=row_index,
+                    key=key_str,
+                    value=value_str
                 )
                 db.session.add(dataset_row)
                 inserted += 1
-            except Exception as e:
-                errors.append(f"Row {row.to_dict()} - {str(e)}")
-            db.session.commit()
+
+        db.session.commit()
 
         # Optional: analyze with OpenAI
         if question:
@@ -113,10 +120,14 @@ def upload_and_store_dataset():
             answer = ask_openai(question, context=summary)
             response['bot_response'] = answer
 
+        response['rows_inserted'] = inserted
         return jsonify(response), 200
 
     except Exception as e:
+        db.session.rollback()
         return jsonify({'error': f'Failed to process CSV: {str(e)}'}), 500
+
+
 
 @uploads_bp.route('/<int:upload_id>/rows', methods=['GET'])
 def get_uploaded_rows(upload_id):
@@ -129,8 +140,19 @@ def get_uploaded_rows(upload_id):
         return jsonify({
             'upload_id': upload_id,
             'total_rows': len(rows),
-            'data': [row.row_data for row in rows]
+            'data': [
+                        {
+                            'hospital_id': row.hospital_id,
+                            'row_index': row.row_index,
+                            'key': row.key,
+                            'value': row.value
+                        } for row in rows
+                    ]
         }), 200
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+
+
+    
