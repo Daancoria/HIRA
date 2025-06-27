@@ -6,7 +6,7 @@ export default function ChatbotPage() {
   return (
     <div style={{ padding: '2rem', height: '100vh', background: '#f9fafb' }}>
       <h1 style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>
-        HIRA Assistant
+        HIRA
       </h1>
       <p style={{ marginBottom: '2rem' }}>
         You can interact with the floating assistant in the bottom right corner.
