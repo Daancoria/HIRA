@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { AuthProvider } from './context/AuthContext';
 import './index.css';
+import MockDesktop from './pages/MockDesktop';
 function AppRoutes() {
   const location = useLocation();
   const hideUI = location.pathname === '/' || location.pathname === '/register';
@@ -18,6 +19,7 @@ function AppRoutes() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/chatbot" element={<ChatbotPage />} />
         <Route path="/history" element={<ChatHistoryPage />} />
+        <Route path="/mock" element={<MockDesktop/>} />
       </Routes>
       {/* Show only when not on login/register */}
       {!hideUI && (

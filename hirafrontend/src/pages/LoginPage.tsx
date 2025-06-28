@@ -18,7 +18,7 @@ const LoginPage: React.FC = () => {
     }
     try {
       await login(email, password, role, name);
-      navigate('/chat');
+      navigate('/mock');
     } catch (err) {
       console.error('Login failed:', err);
       alert('Login failed. Please check your credentials.');
