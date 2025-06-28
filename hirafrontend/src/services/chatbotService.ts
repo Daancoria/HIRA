@@ -11,13 +11,14 @@ export async function getBotResponse(prompt: string): Promise<string> {
   }
 
   try {
-    const response = await fetch('http://localhost:5000/analyze', {
+    const response = await fetch('https://flask-env.eba-xyz123.us-east-1.elasticbeanstalk.com/analyze', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ prompt }),
     });
+    
 
     if (!response.ok) {
       throw new Error(`Server returned ${response.status}`);
