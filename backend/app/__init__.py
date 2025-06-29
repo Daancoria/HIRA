@@ -2,11 +2,11 @@ from app.error_handlers import register_error_handlers
 from flask import Flask
 from app.extension import db, ma, limiter, cache
 from app.logging_config import setup_logging 
-from app.blueprints.user.routes import users_bp
-from app.blueprints.upload.routes import uploads_bp
-from app.blueprints.kpi.routes import kpis_bp
-from app.blueprints.staffing_data.routes import staffing_data_bp
-from app.blueprints.ai_response.routes import ai_response_bp
+from app.blueprints.v1.user.routes import users_bp
+from app.blueprints.v1.upload.routes import uploads_bp
+from app.blueprints.v1.kpi.routes import kpis_bp
+from app.blueprints.v1.staffing_data.routes import staffing_data_bp
+from app.blueprints.v1.ai_response.routes import ai_response_bp
 from app.models import DatasetRow
 from flask_migrate import Migrate
 from flask_swagger_ui import get_swaggerui_blueprint as swagger_ui_bp
