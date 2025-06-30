@@ -1,4 +1,5 @@
 from . import db
+from datetime import datetime
 
 class User(db.Model):
     __tablename__ = 'Users'
@@ -13,7 +14,7 @@ class User(db.Model):
 
     # relationships (optional)
     uploads = db.relationship('Upload', backref='user', lazy=True)
-    audit_logs = db.relationship('AuditLog', backref='user', lazy=True)
+    audit_log = db.relationship('AuditLog', backref='user', lazy=True)
     ai_conversations = db.relationship('AIConversation', backref='user', lazy=True)
     ai_queries = db.relationship('AIQuery', backref='user', lazy=True)
 
@@ -97,14 +98,6 @@ class Insight(db.Model):
     recommendation = db.Column(db.String(500))
     confidence_score = db.Column(db.Numeric(5, 2))
     
-class AuditLog(db.Model):
-    __tablename__ = 'Audit_Logs'
-
-    audit_id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
-    action = db.Column(db.String(350))
-    audit_timestamp = db.Column(db.DateTime, server_default=db.func.now())
-    
 class AIResponse(db.Model):
     __tablename__ = 'ai_responses'
 
@@ -150,3 +143,35 @@ class DatasetRow(db.Model):
     )
     upload_id = db.Column(db.Integer, db.ForeignKey('Uploads.upload_id'), nullable=True)
     upload = db.relationship('Upload', backref='dataset_rows')
+
+
+# SECURITY MODELS
+class AuditLog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=True)
+    action = db.Column(db.String(255), nullable=False)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    ip_address = db.Column(db.String(100))
+    endpoint = db.Column(db.String(255))
+    method = db.Column(db.String(10))
+    user_agent = db.Column(db.String(255))
+
+
+
+class SecurityLog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    event_type = db.Column(db.String(100))  # e.g., "Failed Login"
+    description = db.Column(db.Text)
+    ip_address = db.Column(db.String(100))
+    user_agent = db.Column(db.String(255))
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+class DataChangeLog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    table_name = db.Column(db.String(50))
+    row_id = db.Column(db.Integer)
+    action = db.Column(db.String(20))  # INSERT, UPDATE, DELETE
+    old_data = db.Column(db.JSON)
+    new_data = db.Column(db.JSON)
+    changed_by = db.Column(db.Integer)  # user_id
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
